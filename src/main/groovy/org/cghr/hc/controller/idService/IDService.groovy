@@ -68,7 +68,7 @@ class IDService {
 
     }
 
-    @RequestMapping("/area/{areaId}/house/{houseId}/household/{householdId}/esl")
+    @RequestMapping("/area/{areaId}/house/{houseId}/household/{householdId}/death")
 
     Map getNextMember(@CookieValue("userid") String userid,
                       @PathVariable("householdId") String householdId) {

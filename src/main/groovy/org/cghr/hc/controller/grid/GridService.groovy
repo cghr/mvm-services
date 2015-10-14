@@ -54,14 +54,15 @@ class GridService {
     List getHouses(@PathVariable("context") String context, @PathVariable("areaId") Integer areaId) {
 
         String nextState = (context == 'enum') ? 'basicInf' : 'household'
-        Map data = [nextState: context + ".houseDetail.$nextState", entityId: 'houseId', refs: [areaId: areaId], alias: 'a.']
+        Map data = [nextState: context + ".houseDetail.$nextState", entityId: 'houseId', refs: [areaId: areaId]]
 
         String link = createLink(data)
+        sql="select $link,camNo from house where areaId=?"
         //sql = "select $link,houseNs,b.households,gps_latitude,gps_longitude from house a left join(select   houseId,count(*)  households  from household group by houseId) b on a.houseId=b.houseId where a.areaId=?".toString()
 
-        sql = "SELECT $link,houseno,b.flag,gps_latitude,gps_longitude FROM house a LEFT JOIN " +
-                "(SELECT houseId,CASEWHEN(hhAvailability LIKE '%temporarily locked%','Revisit','')  flag FROM  (SELECT  p.houseId,GROUP_CONCAT(p.hhAvailability) hhAvailability  FROM enumVisit p " +
-                "LEFT JOIN enumVisit q ON p.householdId=q.householdId AND p.id<q.id WHERE q.id IS NULL  GROUP BY p.houseId ) tab1 ) b ON a.houseId=b.houseId  WHERE a.areaId=?"
+//        sql = "SELECT $link,houseno,b.flag,gps_latitude,gps_longitude FROM house a LEFT JOIN " +
+//                "(SELECT houseId,CASEWHEN(hhAvailability LIKE '%temporarily locked%','Revisit','')  flag FROM  (SELECT  p.houseId,GROUP_CONCAT(p.hhAvailability) hhAvailability  FROM enumVisit p " +
+//                "LEFT JOIN enumVisit q ON p.householdId=q.householdId AND p.id<q.id WHERE q.id IS NULL  GROUP BY p.houseId ) tab1 ) b ON a.houseId=b.houseId  WHERE a.areaId=?"
         return constructJsonResponse(sql, [areaId])
     }
 
@@ -80,7 +81,7 @@ class GridService {
         //Map row = dbAccess.firstRow("select hhAvailability from enumVisit ORDER by id DESC LIMIT 1")
 
         if (context == 'enum')
-            sql = "SELECT  $link,householdCount,hhHead head FROM household WHERE houseId=?"
+            sql = "SELECT  $link,hhHeadName head FROM household WHERE houseId=?"
         //sql = "SELECT  $link,totalMembers totalMembers,CASEWHEN(b.hhAvailability='Door temporarily locked','Revisit',b.hhAvailability) flag  FROM household a left JOIN (SELECT m1.householdId,m1.hhAvailability FROM enumVisit m1 LEFT JOIN enumVisit m2 ON (m1.householdId = m2.householdId AND m1.id < m2.id) WHERE m2.id IS NULL)b ON a.householdId=b.householdId where houseId=?".toString()
         //sql="SELECT  $link,totalMembers totalMembers,CASEWHEN(b.hhAvailability='Door temporarily locked','Revisit',b.hhAvailability) flag  FROM household a left JOIN (SELECT m1.householdId,m1.hhAvailability FROM enumVisit m1 LEFT JOIN enumVisit m2 ON (m1.householdId = m2.householdId AND m1.id < m2.id) WHERE m2.id IS NULL)b ON a.householdId=b.householdId  where houseId=?"
 
@@ -151,7 +152,7 @@ class GridService {
 
         Map data = [nextState: '', entityId: '']
         String link = createLink(data)
-        sql = "select name,sex,age_value from death where householdId=?".toString()
+        sql = "select name,sex,concat(age_value,' ',age_unit) age from death where householdId=?".toString()
 
         return constructJsonResponse(sql, [householdId])
     }

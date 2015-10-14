@@ -44,8 +44,8 @@ class GridServiceSpec extends Specification {
         mockMvc.perform(get('/GridService/enum/area/13/house/3813001/household'))
                 .andExpect(status().isOk())
 
-        mockMvc.perform(get('/GridService/enum/area/13/house/3813001/household/381300101/visit'))
-                .andExpect(status().isOk())
+//        mockMvc.perform(get('/GridService/enum/area/13/house/3813001/household/381300101/visit'))
+//                .andExpect(status().isOk())
 
 //        mockMvc.perform(get('/GridService/enum/area/13/house/3813001/household/381300101/member'))
 //                .andExpect(status().isOk())
