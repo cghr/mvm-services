@@ -22,6 +22,12 @@ INSERT INTO user(id,username,password,role) VALUES(30,'salim','493a4ffe38305186d
 INSERT INTO user(id,username,password,role) VALUES(31,'ronak','12250724e5437aab5bd7294915ec440d','user');
 INSERT INTO user(id,username,password,role) VALUES(32,'rupesh','3965193ef9719208f8da5809132c7053','user');
 INSERT INTO user(id,username,password,role) VALUES(33,'rakesh','abd1e3052a350149d8de32e0852d1fe0','user');
+INSERT INTO user(id,username,password,role) VALUES(91,'senthil','5f4dcc3b5aa765d61d8327deb882cf99','user');
+INSERT INTO user(id,username,password,role) VALUES(92,'jimmy','5f4dcc3b5aa765d61d8327deb882cf99','user');
+INSERT INTO user(id,username,password,role) VALUES(93,'rehana','5f4dcc3b5aa765d61d8327deb882cf99','user');
+INSERT INTO user(id,username,password,role) VALUES(94,'srini','5f4dcc3b5aa765d61d8327deb882cf99','user');
+INSERT INTO user(id,username,password,role) VALUES(95,'chandamita','5f4dcc3b5aa765d61d8327deb882cf99','user');
+INSERT INTO user(id,username,password,role) VALUES(96,'teju','5f4dcc3b5aa765d61d8327deb882cf99','user');
 INSERT INTO user(id,username,password,role) VALUES(1,'admin','91738af4da2c0ac3ebee5d094eaf120f','manager');
 INSERT INTO user(id,username,password,role) VALUES(2,'shamjr','91738af4da2c0ac3ebee5d094eaf120f','manager');
 INSERT INTO user(id,username,password,role) VALUES(3,'utkarshshah','91738af4da2c0ac3ebee5d094eaf120f','manager');

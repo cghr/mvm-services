@@ -163,9 +163,9 @@ class GridService {
             @PathVariable("houseId") String houseId,
             @PathVariable("context") String context, @PathVariable("householdId") String householdId) {
 
-        Map data = [nextState: "resolver", entityId: 'deathId', refs: [areaId: areaId, houseId: houseId, householdId: householdId], alias: 'a.']
+        Map data = [nextState: "enum.deathDetail.basicInf", entityId: 'deathId', refs: [areaId: areaId, houseId: houseId, householdId: householdId], alias: 'a.']
         String link = createLink(data)
-        sql = "select $link,name,age_value,age_unit,sex,casewhen(b.deathId is null,'Pending','Completed') status from death a left join feedback b on a.deathId=b.deathId  where householdId=? and  age_value<70".toString()
+        sql = "select $link,name,age_value,age_unit,sex,a.surveytype,casewhen(b.deathId is null,'Pending','Completed') status from death a left join feedback b on a.deathId=b.deathId  where householdId=? and  age_value<70".toString()
 
         return constructJsonResponse(sql, [householdId])
     }
