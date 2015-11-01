@@ -35,7 +35,7 @@ class Resampling {
         //String sql = "select a.memberId,name,houseno,CASEWHEN(b.memberId is null,'Pending','Completed') status from resampAssign a left join resampling b on a.memberId=b.memberId where assignedto=? and a.timelog like '$today'"
         //dbAccess.rows(sql, [userid])
         //String sql="select a.deathId,a.name from death a left join resampling b on a.deathId=b.deathId where a.timelog like '$today'"
-        String sql = "SELECT a.deathId,NAME,b.houseno,a.sex,CONCAT(a.age_value,' ',a.age_unit) age,casewhen(c.memberId is null,'Pending','Completed') status  FROM death  a LEFT JOIN house b ON a.houseId=b.houseId LEFT JOIN resampling c ON a.deathId=c.memberId  WHERE a.timelog LIKE '$today'"
+        String sql = "SELECT a.deathId,NAME,b.camNo,a.sex,CONCAT(a.age_value,' ',a.age_unit) age,casewhen(c.memberId is null,'Pending','Completed') status  FROM death  a LEFT JOIN house b ON a.houseId=b.houseId LEFT JOIN resampling c ON a.deathId=c.memberId  WHERE a.timelog LIKE '$today'"
         dbAccess.rows(sql)
     }
 

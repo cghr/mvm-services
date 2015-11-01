@@ -3,6 +3,7 @@ INSERT INTO user(id,username,password,role) VALUES(11,'dhavalbhai','dada7ada8df4
 INSERT INTO user(id,username,password,role) VALUES(12,'rockey','a678c8d4a6e33d5bc49ac29871272724','manager');
 INSERT INTO user(id,username,password,role) VALUES(13,'ashif','65e3cc672b5755a1a1bda20de156e42d','manager');
 INSERT INTO user(id,username,password,role) VALUES(14,'jinal','969706ca14812320bb9e94c6a1a5281e','manager');
+INSERT INTO user(id,username,password,role) VALUES(32,'rupesh','3965193ef9719208f8da5809132c7053','manager');
 INSERT INTO user(id,username,password,role) VALUES(15,'emrankhan','925b3af13d46c493dca7f384ec53322f','manager');
 INSERT INTO user(id,username,password,role) VALUES(16,'sheron','3e4b8152399ea8f0c4cf4ac9443b46b2','user');
 INSERT INTO user(id,username,password,role) VALUES(17,'vijay','81875a7b4d212f32e20f359493b57fff','user');
@@ -20,7 +21,6 @@ INSERT INTO user(id,username,password,role) VALUES(28,'shoeb','40bbb371d02eba2a6
 INSERT INTO user(id,username,password,role) VALUES(29,'yasar','d5abd5dc0ecad84e6bbb90f7987a2255','user');
 INSERT INTO user(id,username,password,role) VALUES(30,'salim','493a4ffe38305186d78f77cda3774955','user');
 INSERT INTO user(id,username,password,role) VALUES(31,'ronak','12250724e5437aab5bd7294915ec440d','user');
-INSERT INTO user(id,username,password,role) VALUES(32,'rupesh','3965193ef9719208f8da5809132c7053','user');
 INSERT INTO user(id,username,password,role) VALUES(33,'rakesh','abd1e3052a350149d8de32e0852d1fe0','user');
 INSERT INTO user(id,username,password,role) VALUES(91,'senthil','5f4dcc3b5aa765d61d8327deb882cf99','user');
 INSERT INTO user(id,username,password,role) VALUES(92,'jimmy','5f4dcc3b5aa765d61d8327deb882cf99','user');
